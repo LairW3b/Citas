@@ -1,0 +1,11 @@
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  background-color: var(--red);
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  border-radius: .5rem;
+}

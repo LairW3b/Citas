@@ -14,7 +14,19 @@
 
 .p_pacientes {
   font-weight: 700;
+  margin-bottom: 0rem;
 }
+
 .p_pacientes span{
   color: var(--blue);
+}
+
+@media (min-width: 650px) {
+  .lista_clientes {
+    height: auto;
+    padding: 1rem 3rem;
+  }
+  .title_pacientes {
+    text-align: center;
+  }
 }

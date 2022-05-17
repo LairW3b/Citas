@@ -1,7 +1,8 @@
 .clientes_content {
   box-shadow: .2rem .2rem .5rem var(--black);
-  border: .2rem solid var(--black);
+  border: .2rem solid var(--blue);
   border-radius: .4rem;
+  margin: .5rem;
 } 
  .p_clientes {
    color: var(--blue);
@@ -36,3 +37,13 @@
  .btn_eliminar {
    background-color: var(--red);
  }
+
+@media (min-width: 650px) {
+  .clientes_content {
+    margin: 1.5rem;
+    padding: .5rem 1.5rem;
+  }
+  .p_clientes {
+    margin-top: 1rem; 
+  }
+}

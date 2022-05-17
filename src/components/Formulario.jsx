@@ -1,5 +1,6 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Error from './Error'
 import '../styles/Formulario.css'
 
 const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
@@ -9,13 +10,23 @@ const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
   const [email, setEmail] = useState('')
   const [fecha, setFecha] = useState('')
   const [sintomas, setSintomas] = useState('')
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    if(Object.keys(paciente).length > 0 ) {
+      setCliente(paciente.cliente)
+      setNombre(paciente.nombre)
+      setEmail(paciente.email)
+      setFecha(paciente.fecha)
+      setSintomas(paciente.sintomas)
+    }
+  },[paciente])
 
   // Función para generar un id
   const generarId = () => {
     const random = Math.random().toString(36).substring(2)
     const fecha = Date.now().toString(36)
 
-    
     return random + fecha
   }
   
@@ -23,6 +34,13 @@ const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
   const handelSubmit = (e) => {
     e.preventDefault()
     // Validar Formulario
+    if([cliente, nombre, email, fecha, sintomas].includes('')){
+      console.log('hay elementos vacios...')   
+      setError(true) 
+    }else {
+      console.log('hay elementos'); 
+      setError(false) 
+    }
     // Genero el objeto
     const objPaciente = {
       cliente,
@@ -33,7 +51,12 @@ const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
     }
 
     if(paciente.id) {
-      console.log('existe...');
+      objPaciente.id = paciente.id
+
+      const actualizar = pacientes.map(p => p.id === paciente.id ? objPaciente : p)
+
+      setPacientes(actualizar)
+      setPaciente({})
     }else {
       objPaciente.id = generarId()
       setPacientes([...pacientes, objPaciente])
@@ -59,6 +82,8 @@ const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
         onSubmit={handelSubmit}
         className='formulario'
       >
+      
+      { error && <Error mensaje={'Todos los campos son obligatorios'}/> }
 
         <div className="label_content">
           <label
@@ -148,6 +173,7 @@ const Formulario = ({ paciente, setPaciente, pacientes, setPacientes }) => {
         <input
           type="submit"
           className="btn_submit"
+          value={ paciente.id ? 'Editar Paciente' : 'Agregar Paciente' }
         />
       </form>
     </div>

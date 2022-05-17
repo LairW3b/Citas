@@ -8,3 +8,9 @@
 .titulo_header span {
   color: var(--blue);
 }
+
+@media (min-width: 650px){
+  .titulo_header{
+    margin: 3rem;
+  }
+}

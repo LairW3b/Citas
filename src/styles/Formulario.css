@@ -56,3 +56,15 @@
   text-transform: uppercase;
   font-weight: 700;
 }
+
+@media (min-width: 650px) {
+  .content_form {
+    height: min-content;
+    padding: 1rem 3rem;
+    position: sticky;
+    top: .5rem;
+  }
+  .title_form {
+    text-align: center;
+  }
+}

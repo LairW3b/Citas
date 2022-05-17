@@ -1,8 +1,10 @@
-import React from 'react'
+import '../styles/Error.css'
 
-const Error = () => {
+const Error = ({ mensaje }) => {
   return (
-    <div>Error</div>
+    <div>
+      <p className='error'>{mensaje}</p>
+    </div>
   )
 }
 

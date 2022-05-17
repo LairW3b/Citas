@@ -1,9 +1,15 @@
 import '../styles/Clientes.css'
 
-const Clientes = ({paciente, setPaciente}) => {
+const Clientes = ({paciente, setPaciente, eliminarPaciente}) => {
 
-  const { cliente, nombre, email, fecha, sintomas } = paciente
-  console.log(paciente);
+  const { cliente, nombre, email, fecha, sintomas, id } = paciente
+
+  const handleEliminar = () => {
+    const respuesta = confirm('¿Desea eliminar paciente?')
+    if(respuesta){
+      eliminarPaciente(id)
+    }
+  }
 
   return (
     <div className="clientes_content">
@@ -25,12 +31,15 @@ const Clientes = ({paciente, setPaciente}) => {
       <div className="btns_content">
         <button 
           type='button'
-          className="btn_editar btn_cliente">
+          className="btn_editar btn_cliente"
+          onClick={() => setPaciente(paciente)}
+        >
           Editar
         </button>
         <button 
           type='button'
           className="btn_eliminar btn_cliente"
+          onClick={handleEliminar}
         >
           Eliminar
         </button>
