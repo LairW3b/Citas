@@ -1,0 +1,10 @@
+.titulo_header {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 1rem;
+  text-align: center;
+}
+
+.titulo_header span {
+  color: var(--blue);
+}

@@ -1,0 +1,38 @@
+.clientes_content {
+  box-shadow: .2rem .2rem .5rem var(--black);
+  border: .2rem solid var(--black);
+  border-radius: .4rem;
+} 
+ .p_clientes {
+   color: var(--blue);
+   font-weight: 700;
+   margin-left: .5rem;
+ } 
+
+ .p_clientes span {
+   color: var(--black);
+   font-weight: 400;
+ }
+
+ .btns_content  {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 1rem;
+ }
+
+ .btn_cliente {
+   height: 4rem;
+   border: none;
+   border-radius: .4rem;
+   font-weight: 700;
+   color: #fff;
+   text-transform: uppercase;
+   margin: .4rem;
+ }
+ .btn_editar {
+   background-color: var(--blue);
+ }
+
+ .btn_eliminar {
+   background-color: var(--red);
+ }
